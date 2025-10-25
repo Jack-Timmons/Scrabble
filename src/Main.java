@@ -7,8 +7,14 @@ import java.util.*;
  */
 public class Main {
     public static void main(String[] args) {
+
+        // constants for commands
+        final String QUIT = "QUIT";
+        final String PASS = "PASS";
+
         Scanner scanner = new Scanner(System.in);
 
+        // display welcome
         System.out.println("Welcome to Scrabble!");
 
         // Ask for number of players (2-4)
@@ -48,9 +54,9 @@ public class Main {
             System.out.print("Enter command (WORD to place, PASS to exchange, QUIT to exit): ");
             String command = scanner.nextLine().trim();
 
-            if (command.equalsIgnoreCase("QUIT")) break;
+            if (command.equalsIgnoreCase(QUIT)) break;
 
-            if (command.equalsIgnoreCase("PASS")) {
+            if (command.equalsIgnoreCase(PASS)) {
                 game.passTurn();
                 continue;
             }
