@@ -13,6 +13,8 @@ public class Game {
     private TileBag tileBag;
     private Dictionary dictionary;
 
+    private static final int tilesPerTurn = 1;  // # of tiles players draw per turn
+
     /**
      * Initializes the game with a given number of players.
      * @param numPlayers number of players (2-4)
@@ -58,6 +60,14 @@ public class Game {
         List<Tile> newTiles = tileBag.drawTiles(oldTiles.size());
         current.setRack(newTiles);
         System.out.println(current.getName() + " exchanged tiles.");
+    }
+
+    /**
+     * Adds the tilesPerTurn to the current player's rack
+     */
+    public void newTile(){
+        Player current = getCurrentPlayer();
+        current.addTiles(tileBag.drawTiles(tilesPerTurn));
     }
 
     /**

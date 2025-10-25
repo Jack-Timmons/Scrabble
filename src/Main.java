@@ -47,13 +47,20 @@ public class Main {
         // Game loop
         while (true) {
             Player current = game.getCurrentPlayer();
+            game.newTile(); //adds new tile to player's rack
+
+            //display current player and tiles
             System.out.println("\nCurrent Player: " + current.getName());
             System.out.println("Rack: " + current.rackString());
+
+            //display board
             game.getBoard().printBoard();
 
+            //get command
             System.out.print("Enter command (WORD to place, PASS to exchange, QUIT to exit): ");
             String command = scanner.nextLine().trim();
 
+            //execute command
             if (command.equalsIgnoreCase(QUIT)) break;
 
             if (command.equalsIgnoreCase(PASS)) {
